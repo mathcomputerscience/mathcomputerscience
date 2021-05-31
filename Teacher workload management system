@@ -1,0 +1,171 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include"conio.h"
+#define N 20
+menu()
+{
+ printf(" \t                      .____________________________.  \n");
+ printf(" \t                      |   __∴★∵**☆_∴★∵**__  | \n");
+ printf(" \t                      | I                        I | \n");
+ printf(" \t      ____            | I *^_^* 欢迎进入教师     I | \n");                   
+ printf(" \t     /,---<           | I     工作量管理系统     I | \n");
+ printf(" \t    ( )o~o~~@~@       | I   1--录入教师信息      I | \n");
+ printf(" \t     c   >/           | I   2--统计教师工作量信息I | \n");
+ printf(" \t      (_0/ -          | I   3--查询教师工作量信息I | \n");
+ printf(" \t     ,- >o<-          | I   0--退出操作          I | \n");
+ printf(" \t    /   /   )         | I    ***                 I | \n");
+ printf(" \t   / /| | |/ )        | I    ******              I | \n"); 
+ printf(" \t  ( (_( | |_/         | I    **********          I | \n"); 
+ printf(" \t    /_/`__|_          | I________________________I | \n");
+ printf(" \t      | | |           !___________________________ ! \n");
+ printf(" \t      | | |                    |       |               \n");
+ printf(" \t      | | |                  ._[_______]_.             \n");
+ printf(" \t      | | |                  | ~(@^_^@)~ |             \n");
+ printf(" \t      (___)_)         .______|           |______.      \n"); 
+ printf(" \t                      |      ------- __@        |      \n");
+ printf(" \t                      |      ----- _`(<,_       |      \n"); 
+ printf(" \t                      |      ---- (*)/ (*)      |      \n");
+ printf(" \t                      !_________________________!      \n");
+ printf(" \t                      请按选择输入(0~3)                \n");
+}
+struct teacher//教师信息
+{
+    int num;
+    char name[N];
+    char sex[N];
+    int age;
+    char level[N];
+    long int phone;
+};
+struct cla    //班级信息
+{
+    int class;//班级数目
+    char sub[N];
+
+};
+struct subject  //课程信息
+{
+   int shu1;   //理论课时
+   int shu2;   // 实验课时
+};
+struct message
+{
+   struct  teacher aa;
+   struct cla bb;
+   struct subject cc;
+};
+
+void record();
+void statistics();
+void query();
+int  i,m,l,j=0,k=0,p=0,q=0;
+char n[N];
+struct message a[2];
+double b[N];
+main()
+{ 
+  int choice; 
+    
+        printf ("请输入您的选择：");
+		while(1)
+		{
+			system("cls");
+			menu();
+        scanf ("%d", &choice);	
+        switch (choice)
+        {	 
+   case 0:{
+			 char ch;
+			 printf("\n\t\t\t确认退出吗(y/n)?:");
+			 getchar();
+		     ch=getchar();
+	    	
+		    if(ch=='y'||ch=='Y')
+			{
+					printf("\n\t\t\t谢谢使用!!!!\n");
+			
+					exit(0);
+
+			}  
+			   }  
+          getchar();  break;
+   case 1:
+                record ();getchar();
+                break;
+   case 2:
+                statistics ();getchar();
+               getchar();break;
+   case 3:
+                query ();getchar(); 
+               getchar(); break;  
+ 
+   default:
+                printf ("\n无效选项!");
+                getchar();break;
+        }          
+}
+}
+
+void record()
+{ 
+     printf("请输入2个教师号，姓名，性别，年龄，学历，电话，班级个数，课程,理论课时，实验课时:\n");/*1． 基本信息录入（包括教师信息、班级信息、课程信息等）*/
+        for(i=0;i<2;i++)
+     {      
+        scanf("%d%s%s%d%s%ld%d%s%d%d",&a[i].aa.num,a[i].aa.name,a[i].aa.sex,&a[i].aa.age,a[i].aa.level,&a[i].aa.phone,&a[i].bb.class,a[i].bb.sub,&a[i].cc.shu1,&a[i].cc.shu2);	
+     }
+}
+void statistics()
+{
+ for(i=0;i<2;i++)
+   {
+    if(a[i].bb.class==1)	
+         b[i]=(a[i].cc.shu1)+(a[i].cc.shu2);
+     else if(a[i].bb.class==2)
+         b[i]=1.5*((a[i].cc.shu1)+(a[i].cc.shu2));
+     else if(a[i].bb.class==3)
+         b[i]=2*((a[i].cc.shu1)+(a[i].cc.shu2));
+     else 
+         b[i]=2.5*((a[i].cc.shu1)+(a[i].cc.shu2));
+    printf("教师%d总课时%lf\n",a[i].aa.num,b[i]);
+   }
+}
+void query()
+{
+   printf("查询");
+   printf("\n--------------------------\n");
+   printf("1--按教师号查询   2--按姓名查询\n");
+   scanf("%d",&l);
+ if(l==1)
+ {
+	   printf("输入要查询的教师号:\n");
+  scanf("%d",&m);
+   for(i=0;i<2;i++)
+   {
+	   if(a[i].aa.num==m)
+	   {
+	printf("教师号\t姓名\t班级个数\t课程\t理论课时\t实验课时:\n");
+	printf("%d\t%s\t%d\t%s\t%d\t%d\n",a[i].aa.num,a[i].aa.name,a[i].bb.class,a[i].bb.sub,a[i].cc.shu1,a[i].cc.shu2);
+	j=1;
+	   }
+   }
+	     if (j==0 && k==0)
+  printf("没有该教师的信息!\n");
+ }
+ else if(l==2)
+  {
+   printf("输入要查询的教师姓名:\n");
+  scanf("%s",n);
+   for(i=0;i<2;i++)
+   {
+  if(strcmp(a[i].aa.name,n)==0)
+  {
+	printf("教师号\t姓名\t班级个数\t课程\t理论课时\t实验课时:\n");
+	printf("%d\t%s\t%d\t%s\t%d\t%d\n",a[i].aa.num,a[i].aa.name,a[i].bb.class,a[i].bb.sub,a[i].cc.shu1,a[i].cc.shu2);
+    p=1;
+  }
+   }
+   if (p==0 && q==0)
+	   printf("没有该教师的信息!\n");
+  }
+   }
