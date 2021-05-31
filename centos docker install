@@ -1,0 +1,631 @@
+[wangheng@localhost ~]$ yum install -y yum-utils device-mapper-persistent-data lvm2
+Loaded plugins: fastestmirror, langpacks
+You need to be root to perform this command.         #必须要root权限下
+[wangheng@localhost ~]$ su -                         #使用su - 获得root权限
+Password: 
+su: Authentication failure
+[wangheng@localhost ~]$ 
+[wangheng@localhost ~]$ su -
+Password: 
+Last login: Wed Feb 10 09:29:45 CST 2021 on pts/1
+Last failed login: Mon May 31 23:29:49 CST 2021 on pts/1
+There was 1 failed login attempt since the last successful login.
+ABRT has detected 1 problem(s). For more info run: abrt-cli list --since 1612920585
+[root@localhost ~]# yum install -y yum-utils device-mapper-persistent-data lvm2    #安装依赖包
+Loaded plugins: fastestmirror, langpacks
+Determining fastest mirrors
+ * base: mirrors.163.com
+ * extras: mirrors.163.com
+ * updates: mirrors.163.com
+base                                                     | 3.6 kB     00:00     
+extras                                                   | 2.9 kB     00:00     
+updates                                                  | 2.9 kB     00:00     
+(1/4): base/7/x86_64/group_gz                              | 153 kB   00:00     
+(2/4): extras/7/x86_64/primary_db                          | 236 kB   00:00     
+(3/4): updates/7/x86_64/primary_db                         | 8.0 MB   00:01     
+(4/4): base/7/x86_64/primary_db                            | 6.1 MB   00:02     
+Package yum-utils-1.1.31-54.el7_8.noarch already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package device-mapper-persistent-data.x86_64 0:0.8.5-3.el7 will be updated
+---> Package device-mapper-persistent-data.x86_64 0:0.8.5-3.el7_9.2 will be an update
+---> Package lvm2.x86_64 7:2.02.187-6.el7 will be updated
+---> Package lvm2.x86_64 7:2.02.187-6.el7_9.5 will be an update
+--> Processing Dependency: lvm2-libs = 7:2.02.187-6.el7_9.5 for package: 7:lvm2-2.02.187-6.el7_9.5.x86_64
+--> Running transaction check
+---> Package lvm2-libs.x86_64 7:2.02.187-6.el7 will be updated
+---> Package lvm2-libs.x86_64 7:2.02.187-6.el7_9.5 will be an update
+--> Processing Dependency: device-mapper-event = 7:1.02.170-6.el7_9.5 for package: 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64
+--> Running transaction check
+---> Package device-mapper-event.x86_64 7:1.02.170-6.el7 will be updated
+---> Package device-mapper-event.x86_64 7:1.02.170-6.el7_9.5 will be an update
+--> Processing Dependency: device-mapper-event-libs = 7:1.02.170-6.el7_9.5 for package: 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64
+--> Processing Dependency: device-mapper = 7:1.02.170-6.el7_9.5 for package: 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64
+--> Running transaction check
+---> Package device-mapper.x86_64 7:1.02.170-6.el7 will be updated
+--> Processing Dependency: device-mapper = 7:1.02.170-6.el7 for package: 7:device-mapper-libs-1.02.170-6.el7.x86_64
+---> Package device-mapper.x86_64 7:1.02.170-6.el7_9.5 will be an update
+---> Package device-mapper-event-libs.x86_64 7:1.02.170-6.el7 will be updated
+---> Package device-mapper-event-libs.x86_64 7:1.02.170-6.el7_9.5 will be an update
+--> Running transaction check
+---> Package device-mapper-libs.x86_64 7:1.02.170-6.el7 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.170-6.el7_9.5 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                        Arch    Version                  Repository
+                                                                           Size
+================================================================================
+Updating:
+ device-mapper-persistent-data  x86_64  0.8.5-3.el7_9.2          updates  423 k
+ lvm2                           x86_64  7:2.02.187-6.el7_9.5     updates  1.3 M
+Updating for dependencies:
+ device-mapper                  x86_64  7:1.02.170-6.el7_9.5     updates  297 k
+ device-mapper-event            x86_64  7:1.02.170-6.el7_9.5     updates  192 k
+ device-mapper-event-libs       x86_64  7:1.02.170-6.el7_9.5     updates  192 k
+ device-mapper-libs             x86_64  7:1.02.170-6.el7_9.5     updates  325 k
+ lvm2-libs                      x86_64  7:2.02.187-6.el7_9.5     updates  1.1 M
+
+Transaction Summary
+================================================================================
+Upgrade  2 Packages (+5 Dependent packages)
+
+Total download size: 3.8 M
+Downloading packages:
+No Presto metadata available for updates
+warning: /var/cache/yum/x86_64/7/updates/packages/device-mapper-event-1.02.170-6.el7_9.5.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for device-mapper-event-1.02.170-6.el7_9.5.x86_64.rpm is not installed
+(1/7): device-mapper-event-1.02.170-6.el7_9.5.x86_64.rpm   | 192 kB   00:00     
+(2/7): device-mapper-1.02.170-6.el7_9.5.x86_64.rpm         | 297 kB   00:00     
+(3/7): device-mapper-libs-1.02.170-6.el7_9.5.x86_64.rpm    | 325 kB   00:00     
+(4/7): device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64. | 192 kB   00:00     
+(5/7): device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_6 | 423 kB   00:00     
+(6/7): lvm2-2.02.187-6.el7_9.5.x86_64.rpm                  | 1.3 MB   00:00     
+(7/7): lvm2-libs-2.02.187-6.el7_9.5.x86_64.rpm             | 1.1 MB   00:00     
+--------------------------------------------------------------------------------
+Total                                              4.7 MB/s | 3.8 MB  00:00     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-9.2009.0.el7.centos.x86_64 (@anaconda)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : 7:device-mapper-libs-1.02.170-6.el7_9.5.x86_64              1/14 
+  Updating   : 7:device-mapper-1.02.170-6.el7_9.5.x86_64                   2/14 
+  Updating   : 7:device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64        3/14 
+  Updating   : 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64             4/14 
+  Updating   : 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64                       5/14 
+  Updating   : device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64        6/14 
+  Updating   : 7:lvm2-2.02.187-6.el7_9.5.x86_64                            7/14 
+  Cleanup    : 7:lvm2-2.02.187-6.el7.x86_64                                8/14 
+  Cleanup    : 7:lvm2-libs-2.02.187-6.el7.x86_64                           9/14 
+  Cleanup    : 7:device-mapper-event-1.02.170-6.el7.x86_64                10/14 
+  Cleanup    : 7:device-mapper-event-libs-1.02.170-6.el7.x86_64           11/14 
+  Cleanup    : 7:device-mapper-1.02.170-6.el7.x86_64                      12/14 
+  Cleanup    : 7:device-mapper-libs-1.02.170-6.el7.x86_64                 13/14 
+  Cleanup    : device-mapper-persistent-data-0.8.5-3.el7.x86_64           14/14 
+  Verifying  : 7:device-mapper-event-1.02.170-6.el7_9.5.x86_64             1/14 
+  Verifying  : device-mapper-persistent-data-0.8.5-3.el7_9.2.x86_64        2/14 
+  Verifying  : 7:lvm2-libs-2.02.187-6.el7_9.5.x86_64                       3/14 
+  Verifying  : 7:device-mapper-1.02.170-6.el7_9.5.x86_64                   4/14 
+  Verifying  : 7:lvm2-2.02.187-6.el7_9.5.x86_64                            5/14 
+  Verifying  : 7:device-mapper-libs-1.02.170-6.el7_9.5.x86_64              6/14 
+  Verifying  : 7:device-mapper-event-libs-1.02.170-6.el7_9.5.x86_64        7/14 
+  Verifying  : 7:device-mapper-event-libs-1.02.170-6.el7.x86_64            8/14 
+  Verifying  : 7:lvm2-libs-2.02.187-6.el7.x86_64                           9/14 
+  Verifying  : 7:device-mapper-libs-1.02.170-6.el7.x86_64                 10/14 
+  Verifying  : 7:lvm2-2.02.187-6.el7.x86_64                               11/14 
+  Verifying  : device-mapper-persistent-data-0.8.5-3.el7.x86_64           12/14 
+  Verifying  : 7:device-mapper-event-1.02.170-6.el7.x86_64                13/14 
+  Verifying  : 7:device-mapper-1.02.170-6.el7.x86_64                      14/14 
+
+Updated:
+  device-mapper-persistent-data.x86_64 0:0.8.5-3.el7_9.2                        
+  lvm2.x86_64 7:2.02.187-6.el7_9.5                                              
+
+Dependency Updated:
+  device-mapper.x86_64 7:1.02.170-6.el7_9.5                                     
+  device-mapper-event.x86_64 7:1.02.170-6.el7_9.5                               
+  device-mapper-event-libs.x86_64 7:1.02.170-6.el7_9.5                          
+  device-mapper-libs.x86_64 7:1.02.170-6.el7_9.5                                
+  lvm2-libs.x86_64 7:2.02.187-6.el7_9.5                                         
+
+Complete!
+[root@localhost ~]# yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+Loaded plugins: fastestmirror, langpacks
+adding repo from: http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+grabbing file http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
+repo saved to /etc/yum.repos.d/docker-ce.repo
+[root@localhost ~]# ls /etc/yum.repos.d/docker-ce.repo
+/etc/yum.repos.d/docker-ce.repo
+[root@localhost ~]# vim !$
+vim /etc/yum.repos.d/docker-ce.repo
+[root@localhost ~]# yum install docker-ce docker-ce-cli containerd.io -y
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * extras: mirrors.163.com
+ * updates: mirrors.163.com
+docker-ce-stable                                         | 3.5 kB     00:00     
+(1/2): docker-ce-stable/7/x86_64/updateinfo                |   55 B   00:00     
+(2/2): docker-ce-stable/7/x86_64/primary_db                |  60 kB   00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package containerd.io.x86_64 0:1.4.6-3.1.el7 will be installed
+--> Processing Dependency: container-selinux >= 2:2.74 for package: containerd.io-1.4.6-3.1.el7.x86_64
+---> Package docker-ce.x86_64 3:20.10.6-3.el7 will be installed
+--> Processing Dependency: docker-ce-rootless-extras for package: 3:docker-ce-20.10.6-3.el7.x86_64
+---> Package docker-ce-cli.x86_64 1:20.10.6-3.el7 will be installed
+--> Processing Dependency: docker-scan-plugin(x86-64) for package: 1:docker-ce-cli-20.10.6-3.el7.x86_64
+--> Running transaction check
+---> Package container-selinux.noarch 2:2.119.2-1.911c772.el7_8 will be installed
+---> Package docker-ce-rootless-extras.x86_64 0:20.10.6-3.el7 will be installed
+--> Processing Dependency: fuse-overlayfs >= 0.7 for package: docker-ce-rootless-extras-20.10.6-3.el7.x86_64
+--> Processing Dependency: slirp4netns >= 0.4 for package: docker-ce-rootless-extras-20.10.6-3.el7.x86_64
+---> Package docker-scan-plugin.x86_64 0:0.7.0-3.el7 will be installed
+--> Running transaction check
+---> Package fuse-overlayfs.x86_64 0:0.7.2-6.el7_8 will be installed
+--> Processing Dependency: libfuse3.so.3(FUSE_3.2)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3(FUSE_3.0)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3()(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+---> Package slirp4netns.x86_64 0:0.4.3-4.el7_8 will be installed
+--> Running transaction check
+---> Package fuse3-libs.x86_64 0:3.6.1-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch   Version                   Repository        Size
+================================================================================
+Installing:
+ containerd.io          x86_64 1.4.6-3.1.el7             docker-ce-stable  34 M
+ docker-ce              x86_64 3:20.10.6-3.el7           docker-ce-stable  27 M
+ docker-ce-cli          x86_64 1:20.10.6-3.el7           docker-ce-stable  33 M
+Installing for dependencies:
+ container-selinux      noarch 2:2.119.2-1.911c772.el7_8 extras            40 k
+ docker-ce-rootless-extras
+                        x86_64 20.10.6-3.el7             docker-ce-stable 9.2 M
+ docker-scan-plugin     x86_64 0.7.0-3.el7               docker-ce-stable 4.2 M
+ fuse-overlayfs         x86_64 0.7.2-6.el7_8             extras            54 k
+ fuse3-libs             x86_64 3.6.1-4.el7               extras            82 k
+ slirp4netns            x86_64 0.4.3-4.el7_8             extras            81 k
+
+Transaction Summary
+================================================================================
+Install  3 Packages (+6 Dependent packages)
+
+Total download size: 107 M
+Installed size: 438 M
+Downloading packages:
+(1/9): container-selinux-2.119.2-1.911c772.el7_8.noarch.rp |  40 kB   00:00     
+warning: /var/cache/yum/x86_64/7/docker-ce-stable/packages/docker-ce-20.10.6-3.el7.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY
+Public key for docker-ce-20.10.6-3.el7.x86_64.rpm is not installed
+(2/9): docker-ce-20.10.6-3.el7.x86_64.rpm                  |  27 MB   00:05     
+(3/9): containerd.io-1.4.6-3.1.el7.x86_64.rpm              |  34 MB   00:07     
+(4/9): docker-ce-rootless-extras-20.10.6-3.el7.x86_64.rpm  | 9.2 MB   00:01     
+(5/9): fuse-overlayfs-0.7.2-6.el7_8.x86_64.rpm             |  54 kB   00:00     
+(6/9): fuse3-libs-3.6.1-4.el7.x86_64.rpm                   |  82 kB   00:00     
+(7/9): slirp4netns-0.4.3-4.el7_8.x86_64.rpm                |  81 kB   00:00     
+(8/9): docker-scan-plugin-0.7.0-3.el7.x86_64.rpm           | 4.2 MB   00:00     
+(9/9): docker-ce-cli-20.10.6-3.el7.x86_64.rpm              |  33 MB   00:06     
+--------------------------------------------------------------------------------
+Total                                              8.7 MB/s | 107 MB  00:12     
+Retrieving key from https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
+Importing GPG key 0x621E9F35:
+ Userid     : "Docker Release (CE rpm) <docker@docker.com>"
+ Fingerprint: 060a 61c5 1b55 8a7f 742b 77aa c52f eb6b 621e 9f35
+ From       : https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch           1/9 
+  Installing : containerd.io-1.4.6-3.1.el7.x86_64                           2/9 
+  Installing : 1:docker-ce-cli-20.10.6-3.el7.x86_64                         3/9 
+  Installing : docker-scan-plugin-0.7.0-3.el7.x86_64                        4/9 
+  Installing : slirp4netns-0.4.3-4.el7_8.x86_64                             5/9 
+  Installing : fuse3-libs-3.6.1-4.el7.x86_64                                6/9 
+  Installing : fuse-overlayfs-0.7.2-6.el7_8.x86_64                          7/9 
+  Installing : docker-ce-rootless-extras-20.10.6-3.el7.x86_64               8/9 
+  Installing : 3:docker-ce-20.10.6-3.el7.x86_64                             9/9 
+  Verifying  : containerd.io-1.4.6-3.1.el7.x86_64                           1/9 
+  Verifying  : fuse3-libs-3.6.1-4.el7.x86_64                                2/9 
+  Verifying  : docker-ce-rootless-extras-20.10.6-3.el7.x86_64               3/9 
+  Verifying  : fuse-overlayfs-0.7.2-6.el7_8.x86_64                          4/9 
+  Verifying  : 3:docker-ce-20.10.6-3.el7.x86_64                             5/9 
+  Verifying  : docker-scan-plugin-0.7.0-3.el7.x86_64                        6/9 
+  Verifying  : slirp4netns-0.4.3-4.el7_8.x86_64                             7/9 
+  Verifying  : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch           8/9 
+  Verifying  : 1:docker-ce-cli-20.10.6-3.el7.x86_64                         9/9 
+
+Installed:
+  containerd.io.x86_64 0:1.4.6-3.1.el7     docker-ce.x86_64 3:20.10.6-3.el7    
+  docker-ce-cli.x86_64 1:20.10.6-3.el7    
+
+Dependency Installed:
+  container-selinux.noarch 2:2.119.2-1.911c772.el7_8                            
+  docker-ce-rootless-extras.x86_64 0:20.10.6-3.el7                              
+  docker-scan-plugin.x86_64 0:0.7.0-3.el7                                       
+  fuse-overlayfs.x86_64 0:0.7.2-6.el7_8                                         
+  fuse3-libs.x86_64 0:3.6.1-4.el7                                               
+  slirp4netns.x86_64 0:0.4.3-4.el7_8                                            
+
+Complete!
+[root@localhost ~]# yum info php-mysql
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.163.com
+ * extras: mirrors.163.com
+ * updates: mirrors.163.com
+Available Packages
+Name        : php-mysql
+Arch        : x86_64
+Version     : 5.4.16
+Release     : 48.el7
+Size        : 102 k
+Repo        : base/7/x86_64
+Summary     : A module for PHP applications that use MySQL databases
+URL         : http://www.php.net/
+License     : PHP
+Description : The php-mysql package contains a dynamic shared object that will
+            : add MySQL database support to PHP. MySQL is an object-relational
+            : database management system. PHP is an HTML-embeddable scripting
+            : language. If you need MySQL support for PHP applications, you will
+            : need to install this package and the php package.
+
+[root@localhost ~]# systemctl start docker && systemctl enable docker
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
+[root@localhost ~]# cat /proc/sys/net/ipv4/ip_forward
+1
+[root@localhost ~]# docker version
+Client: Docker Engine - Community
+ Version:           20.10.6
+ API version:       1.41
+ Go version:        go1.13.15
+ Git commit:        370c289
+ Built:             Fri Apr  9 22:45:33 2021
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.6
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.15
+  Git commit:       8728dd2
+  Built:            Fri Apr  9 22:43:57 2021
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.4.6
+  GitCommit:        d71fcd7d8303cbf684402823e425e9dd2e99285d
+ runc:
+  Version:          1.0.0-rc95
+  GitCommit:        b9ee9c6314599f1b4a7f497e1f1f856fe433d3b7
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[root@localhost ~]# docker info | more
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  app: Docker App (Docker Inc., v0.9.1-beta3)
+  buildx: Build with BuildKit (Docker Inc., v0.5.1-docker)
+  scan: Docker Scan (Docker Inc.)
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 20.10.6
+ Storage Driver: overlay2
+  Backing Filesystem: xfs
+  Supports d_type: true
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk s
+yslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: d71fcd7d8303cbf684402823e425e9dd2e99285d
+ runc version: b9ee9c6314599f1b4a7f497e1f1f856fe433d3b7
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 3.10.0-1160.el7.x86_64
+ Operating System: CentOS Linux 7 (Core)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 1
+ Total Memory: 972.3MiB
+ Name: localhost.localdomain
+ ID: YWXL:6L3S:SZ2J:NYIQ:HVG7:W4RM:XC6K:JQLJ:UJND:PDI2:W73O:PNSI
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+[root@localhost ~]# ls /var/lib/docker/
+buildkit    image    overlay2  runtimes  tmp    volumes
+containers  network  plugins   swarm     trust
+[root@localhost ~]# docker search centos
+NAME                               DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+centos                             The official build of CentOS.                   6568      [OK]       
+ansible/centos7-ansible            Ansible on Centos7                              134                  [OK]
+consol/centos-xfce-vnc             Centos container with "headless" VNC session…   129                  [OK]
+jdeathe/centos-ssh                 OpenSSH / Supervisor / EPEL/IUS/SCL Repos - …   118                  [OK]
+centos/systemd                     systemd enabled base container.                 98                   [OK]
+imagine10255/centos6-lnmp-php56    centos6-lnmp-php56                              58                   [OK]
+tutum/centos                       Simple CentOS docker image with SSH access      48                   
+kinogmt/centos-ssh                 CentOS with SSH                                 29                   [OK]
+pivotaldata/centos-gpdb-dev        CentOS image for GPDB development. Tag names…   13                   
+guyton/centos6                     From official centos6 container with full up…   10                   [OK]
+nathonfowlie/centos-jre            Latest CentOS image with the JRE pre-install…   8                    [OK]
+centos/tools                       Docker image that has systems administration…   7                    [OK]
+drecom/centos-ruby                 centos ruby                                     6                    [OK]
+pivotaldata/centos                 Base centos, freshened up a little with a Do…   5                    
+mamohr/centos-java                 Oracle Java 8 Docker image based on Centos 7    3                    [OK]
+pivotaldata/centos-mingw           Using the mingw toolchain to cross-compile t…   3                    
+darksheer/centos                   Base Centos Image -- Updated hourly             3                    [OK]
+pivotaldata/centos-gcc-toolchain   CentOS with a toolchain, but unaffiliated wi…   3                    
+indigo/centos-maven                Vanilla CentOS 7 with Oracle Java Developmen…   2                    [OK]
+dokken/centos-7                    CentOS 7 image for kitchen-dokken               2                    
+mcnaughton/centos-base             centos base image                               1                    [OK]
+blacklabelops/centos               CentOS Base Image! Built and Updates Daily!     1                    [OK]
+pivotaldata/centos6.8-dev          CentosOS 6.8 image for GPDB development         1                    
+pivotaldata/centos7-dev            CentosOS 7 image for GPDB development           0                    
+smartentry/centos                  centos with smartentry                          0                    [OK]
+[root@localhost ~]# docker pull centos
+Using default tag: latest
+latest: Pulling from library/centos
+7a0437f04f83: Pull complete 
+Digest: sha256:5528e8b1b1719d34604c87e11dcd1c0a20bedf46e83b5632cdeac91b8c04efc1
+Status: Downloaded newer image for centos:latest
+docker.io/library/centos:latest
+[root@localhost ~]# vim /etc/docker/daemon.json
+[root@localhost ~]# systemctl daemon-reload
+[root@localhost ~]# docker pull centos
+Using default tag: latest
+latest: Pulling from library/centos
+Digest: sha256:5528e8b1b1719d34604c87e11dcd1c0a20bedf46e83b5632cdeac91b8c04efc1
+Status: Image is up to date for centos:latest
+docker.io/library/centos:latest
+[root@localhost ~]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+centos       latest    300e315adb2f   5 months ago   209MB
+[root@localhost ~]# systemctl enable docker
+[root@localhost ~]# cd /usr/lib/systemd/system
+[root@localhost system]# ls
+abrt-ccpp.service                        oddjobd.service
+abrtd.service                            paths.target
+abrt-oops.service                        pcscd.service
+abrt-pstoreoops.service                  pcscd.socket
+abrt-vmcore.service                      plymouth-halt.service
+abrt-xorg.service                        plymouth-kexec.service
+accounts-daemon.service                  plymouth-poweroff.service
+alsa-restore.service                     plymouth-quit.service
+alsa-state.service                       plymouth-quit-wait.service
+amanda@.service                          plymouth-read-write.service
+amanda.socket                            plymouth-reboot.service
+amanda-udp.service                       plymouth-start.service
+amanda-udp.socket                        plymouth-switch-root.service
+anaconda-direct.service                  polkit.service
+anaconda-nm-config.service               postfix.service
+anaconda-noshell.service                 poweroff.target
+anaconda-pre.service                     poweroff.target.wants
+anaconda.service                         printer.target
+anaconda-shell@.service                  proc-fs-nfsd.mount
+anaconda-sshd.service                    proc-sys-fs-binfmt_misc.automount
+anaconda.target                          proc-sys-fs-binfmt_misc.mount
+anaconda-tmux@.service                   psacct.service
+arp-ethers.service                       qemu-guest-agent.service
+atd.service                              quotaon.service
+auditd.service                           rc-local.service
+auth-rpcgss-module.service               rdisc.service
+autofs.service                           realmd.service
+autovt@.service                          reboot.target
+basic.target                             reboot.target.wants
+basic.target.wants                       remote-cryptsetup.target
+blk-availability.service                 remote-fs-pre.target
+bluetooth.service                        remote-fs.target
+bluetooth.target                         rescue.service
+bolt.service                             rescue.target
+brandbot.path                            rescue.target.wants
+brandbot.service                         rhel-autorelabel-mark.service
+canberra-system-bootup.service           rhel-autorelabel.service
+canberra-system-shutdown-reboot.service  rhel-configure.service
+canberra-system-shutdown.service         rhel-dmesg.service
+certmonger.service                       rhel-domainname.service
+cgconfig.service                         rhel-import-state.service
+cgdcbxd.service                          rhel-loadmodules.service
+cgred.service                            rhel-readonly.service
+chrony-dnssrv@.service                   rngd.service
+chrony-dnssrv@.timer                     rpcbind.service
+chronyd.service                          rpcbind.socket
+chrony-wait.service                      rpcbind.target
+clean-mount-point@.service               rpc-gssd.service
+colord.service                           rpcgssd.service
+configure-printer@.service               rpcidmapd.service
+console-getty.service                    rpc_pipefs.target
+console-shell.service                    rpc-rquotad.service
+containerd.service                       rpc-statd-notify.service
+container-getty@.service                 rpc-statd.service
+cpupower.service                         rsyncd.service
+crond.service                            rsyncd@.service
+cryptsetup-pre.target                    rsyncd.socket
+cryptsetup.target                        rsyslog.service
+ctrl-alt-del.target                      rtkit-daemon.service
+cups-browsed.service                     runlevel0.target
+cups.path                                runlevel1.target
+cups.service                             runlevel1.target.wants
+cups.socket                              runlevel2.target
+dbus-org.freedesktop.hostname1.service   runlevel2.target.wants
+dbus-org.freedesktop.import1.service     runlevel3.target
+dbus-org.freedesktop.locale1.service     runlevel3.target.wants
+dbus-org.freedesktop.login1.service      runlevel4.target
+dbus-org.freedesktop.machine1.service    runlevel4.target.wants
+dbus-org.freedesktop.timedate1.service   runlevel5.target
+dbus.service                             runlevel5.target.wants
+dbus.socket                              runlevel6.target
+dbus.target.wants                        run-vmblock\x2dfuse.mount
+debug-shell.service                      selinux-policy-migrate-local-changes@.service
+default.target                           serial-getty@.service
+default.target.wants                     shutdown.target
+dev-hugepages.mount                      shutdown.target.wants
+dev-mqueue.mount                         sigpwr.target
+dm-event.service                         sleep.target
+dm-event.socket                          -.slice
+dmraid-activation.service                slices.target
+docker.service                           smartcard.target
+docker.socket                            smartd.service
+dracut-cmdline.service                   sockets.target
+dracut-initqueue.service                 sockets.target.wants
+dracut-mount.service                     sound.target
+dracut-pre-mount.service                 sound.target.wants
+dracut-pre-pivot.service                 speech-dispatcherd.service
+dracut-pre-trigger.service               spice-vdagentd.service
+dracut-pre-udev.service                  spice-vdagentd.socket
+dracut-shutdown.service                  sshd-keygen.service
+ebtables.service                         sshd.service
+emergency.service                        sshd@.service
+emergency.target                         sshd.socket
+fcoe.service                             sssd-autofs.service
+final.target                             sssd-autofs.socket
+firewalld.service                        sssd-nss.service
+firstboot-graphical.service              sssd-nss.socket
+flatpak-system-helper.service            sssd-pac.service
+fprintd.service                          sssd-pac.socket
+fstrim.service                           sssd-pam-priv.socket
+fstrim.timer                             sssd-pam.service
+gdm.service                              sssd-pam.socket
+geoclue.service                          sssd-secrets.service
+getty-pre.target                         sssd-secrets.socket
+getty@.service                           sssd.service
+getty.target                             sssd-ssh.service
+graphical.target                         sssd-ssh.socket
+graphical.target.wants                   sssd-sudo.service
+gssproxy.service                         sssd-sudo.socket
+halt-local.service                       suspend.target
+halt.target                              svnserve.service
+halt.target.wants                        swap.target
+hibernate.target                         sys-fs-fuse-connections.mount
+hybrid-sleep.target                      sysinit.target
+hypervfcopyd.service                     sysinit.target.wants
+hypervkvpd.service                       sys-kernel-config.mount
+hypervvssd.service                       sys-kernel-debug.mount
+initial-setup-graphical.service          syslog.socket
+initial-setup-reconfiguration.service    syslog.target.wants
+initial-setup.service                    sysstat.service
+initial-setup-text.service               systemd-ask-password-console.path
+initrd-cleanup.service                   systemd-ask-password-console.service
+initrd-fs.target                         systemd-ask-password-plymouth.path
+initrd-parse-etc.service                 systemd-ask-password-plymouth.service
+initrd-root-fs.target                    systemd-ask-password-wall.path
+initrd-switch-root.service               systemd-ask-password-wall.service
+initrd-switch-root.target                systemd-backlight@.service
+initrd-switch-root.target.wants          systemd-binfmt.service
+initrd.target                            systemd-bootchart.service
+initrd.target.wants                      systemd-firstboot.service
+initrd-udevadm-cleanup-db.service        systemd-fsck-root.service
+instperf.service                         systemd-fsck@.service
+iprdump.service                          systemd-halt.service
+iprinit.service                          systemd-hibernate-resume@.service
+iprupdate.service                        systemd-hibernate.service
+iprutils.target                          systemd-hostnamed.service
+irqbalance.service                       systemd-hwdb-update.service
+iscsid.service                           systemd-hybrid-sleep.service
+iscsid.socket                            systemd-importd.service
+iscsi-onboot.service                     systemd-initctl.service
+iscsi.service                            systemd-initctl.socket
+iscsi-shutdown.service                   systemd-journal-catalog-update.service
+iscsiuio.service                         systemd-journald.service
+iscsiuio.socket                          systemd-journald.socket
+kamanda@.service                         systemd-journal-flush.service
+kamanda.socket                           systemd-kexec.service
+kdump.service                            systemd-localed.service
+kexec.target                             systemd-logind.service
+kexec.target.wants                       systemd-machined.service
+kmod-static-nodes.service                systemd-machine-id-commit.service
+kpatch.service                           systemd-modules-load.service
+libstoragemgmt.service                   systemd-nspawn@.service
+lldpad.service                           systemd-poweroff.service
+lldpad.socket                            systemd-quotacheck.service
+local-fs-pre.target                      systemd-random-seed.service
+local-fs.target                          systemd-readahead-collect.service
+local-fs.target.wants                    systemd-readahead-done.service
+lvm2-lvmetad.service                     systemd-readahead-done.timer
+lvm2-lvmetad.socket                      systemd-readahead-drop.service
+lvm2-lvmpolld.service                    systemd-readahead-replay.service
+lvm2-lvmpolld.socket                     systemd-reboot.service
+lvm2-monitor.service                     systemd-remount-fs.service
+lvm2-pvscan@.service                     systemd-rfkill@.service
+machine.slice                            systemd-shutdownd.service
+machines.target                          systemd-shutdownd.socket
+mariadb.service                          systemd-suspend.service
+mdadm-grow-continue@.service             systemd-sysctl.service
+mdadm-last-resort@.service               systemd-timedated.service
+mdadm-last-resort@.timer                 systemd-tmpfiles-clean.service
+mdcheck_continue.service                 systemd-tmpfiles-clean.timer
+mdcheck_continue.timer                   systemd-tmpfiles-setup-dev.service
+mdcheck_start.service                    systemd-tmpfiles-setup.service
+mdcheck_start.timer                      systemd-udevd-control.socket
+mdmonitor-oneshot.service                systemd-udevd-kernel.socket
+mdmonitor-oneshot.timer                  systemd-udevd.service
+mdmonitor.service                        systemd-udev-settle.service
+mdmon@.service                           systemd-udev-trigger.service
+messagebus.service                       systemd-update-done.service
+microcode.service                        systemd-update-utmp-runlevel.service
+ModemManager.service                     systemd-update-utmp.service
+multipathd.service                       systemd-user-sessions.service
+multi-user.target                        systemd-vconsole-setup.service
+multi-user.target.wants                  system.slice
+ndctl-monitor.service                    system-update.target
+NetworkManager-dispatcher.service        targetclid.service
+NetworkManager.service                   targetclid.socket
+NetworkManager-wait-online.service       target.service
+network-online.target                    tcsd.service
+network-pre.target                       teamd@.service
+network.target                           timers.target
+nfs-blkmap.service                       timers.target.wants
+nfs-client.target                        time-sync.target
+nfs-config.service                       tmp.mount
+nfs-idmapd.service                       tuned.service
+nfs-idmap.service                        udisks2.service
+nfs-lock.service                         umount.target
+nfslock.service                          upower.service
+nfs-mountd.service                       usb_modeswitch@.service
+nfs-rquotad.service                      user.slice
+nfs-secure.service                       var-lib-nfs-rpc_pipefs.mount
+nfs-server.service                       vdo.service
+nfs.service                              vdo-start-by-dev@.service
+nfs-utils.service                        vgauthd.service
+nss-lookup.target                        vmtoolsd.service
+nss-user-lookup.target                   wacom-inputattach@.service
+ntpdate.service                          wpa_supplicant.service
+ntpd.service                             zram.service
+[root@localhost system]# ls docker.s*
+docker.service  docker.socket
