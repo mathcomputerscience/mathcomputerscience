@@ -1,0 +1,294 @@
+[wangheng@localhost ~]$ su ~
+su: user /home/wangheng does not exist
+[wangheng@localhost ~]$ su -
+Password: 
+su: Authentication failure
+[wangheng@localhost ~]$ su -
+Password: 
+Last login: Tue Jun  1 00:16:36 CST 2021 on pts/1
+Last failed login: Fri Jun  4 13:59:35 CST 2021 on pts/5
+There was 1 failed login attempt since the last successful login.
+[root@localhost ~]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+centos       latest    300e315adb2f   5 months ago   209MB
+[root@localhost ~]# vim /etc/sysctl.conf
+[root@localhost ~]# vim /etc/sysctl.conf
+[root@localhost ~]# sysctl -p
+[root@localhost ~]# sysctl -p  
+sysctl
+[root@localhost ~]# sysctl -p  
+sysctl
+[root@localhost ~]# sysctl    -p  
+[root@localhost ~]# vim /etc/sysctl.conf
+[root@localhost ~]# sysctl    -p  
+net.ipv4.ip_forward = 1
+[root@localhost ~]# cat /proc/sys/net/ipv4/ip_forward
+1
+[root@localhost ~]# systemctl stop firewalld && systemctl disable firewalld
+Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
+Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
+[root@localhost ~]# iptables -L -n
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+[root@localhost ~]# systemctl restart docker
+[root@localhost ~]# iptables -L -n
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER-USER  all  --  0.0.0.0/0            0.0.0.0/0           
+DOCKER-ISOLATION-STAGE-1  all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+DOCKER     all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain DOCKER (1 references)
+target     prot opt source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (1 references)
+target     prot opt source               destination         
+DOCKER-ISOLATION-STAGE-2  all  --  0.0.0.0/0            0.0.0.0/0           
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-ISOLATION-STAGE-2 (1 references)
+target     prot opt source               destination         
+DROP       all  --  0.0.0.0/0            0.0.0.0/0           
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+
+Chain DOCKER-USER (1 references)
+target     prot opt source               destination         
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+[root@localhost ~]# systemctl status firewalld
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor preset: enabled)
+   Active: inactive (dead) since Fri 2021-06-04 16:20:11 CST; 2min 42s ago
+     Docs: man:firewalld(1)
+ Main PID: 784 (code=exited, status=0/SUCCESS)
+
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:21 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...e.
+Jun 03 16:10:22 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...).
+Jun 03 16:10:24 localhost.localdomain firewalld[784]: WARNING: COMMAND_FAILED: '/usr/sbin/ip...).
+Jun 04 16:20:11 localhost.localdomain systemd[1]: Stopping firewalld - dynamic firewall daemon...
+Jun 04 16:20:12 localhost.localdomain systemd[1]: Stopped firewalld - dynamic firewall daemon.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@localhost ~]# docker run -it centos:latest  /bin/bash
+[root@e34aa68af05b /]# ping baidu.com
+ping: baidu.com: Name or service not known
+[root@e34aa68af05b /]# exit
+exit
+[root@localhost ~]# docker run -it centos:latest   bash
+[root@ac4ca017cfc6 /]# init 0
+Couldn't find an alternative telinit implementation to spawn.
+[root@ac4ca017cfc6 /]# reboot
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+Failed to talk to init daemon.
+[root@ac4ca017cfc6 /]# ls /
+bin  etc   lib    lost+found  mnt  proc  run   srv  tmp  var
+dev  home  lib64  media       opt  root  sbin  sys  usr
+[root@ac4ca017cfc6 /]# vim /etc/passwd
+bash: vim: command not found
+[root@ac4ca017cfc6 /]# exit
+exit
+[root@localhost ~]# ps -axu | grep bash
+wangheng   2301  0.0  0.0  72472    48 ?        Ss   07:26   0:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "/usr/bin/startkde"
+wangheng   2928  0.0  0.2 116724  2352 pts/5    Ss   07:27   0:00 /bin/bash
+root       4194  0.0  0.2 116752  2776 pts/5    S    13:59   0:00 -bash
+root       5233  0.0  0.0 112812   964 pts/5    R+   16:30   0:00 grep --color=auto bash
+[root@localhost ~]# docker run -it centos:latest   bash
+[root@67305b39fa9b /]# exit
+exit
+[root@localhost ~]# ps -axu | grep bash
+wangheng   2301  0.0  0.0  72472    48 ?        Ss   07:26   0:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "/usr/bin/startkde"
+wangheng   2928  0.0  0.2 116724  2352 pts/5    Ss   07:27   0:00 /bin/bash
+root       4194  0.0  0.2 116752  2860 pts/5    S    13:59   0:00 -bash
+root       5334  0.0  0.0 112812   964 pts/5    R+   16:32   0:00 grep --color=auto bash
+[root@localhost ~]# docker run -it centos:latest   bash
+[root@69dc6d87f856 /]# cat /etc/tedhat-release
+cat: /etc/tedhat-release: No such file or directory
+[root@69dc6d87f856 /]# cat /etc/redhat-release
+CentOS Linux release 8.3.2011
+[root@69dc6d87f856 /]# exit
+exit
+[root@localhost ~]# docker run  -d centos:latest /bin/sh -c "while true;do echo hello world; sleep 1;done"
+85b7b54b0f1de51041b587282aaab985b0846ccdc57decb903ca0ced4c2963e2
+[root@localhost ~]# docker logs
+"docker logs" requires exactly 1 argument.
+See 'docker logs --help'.
+
+Usage:  docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED              STATUS              PORTS     NAMES
+85b7b54b0f1d   centos:latest   "/bin/sh -c 'while t…"   About a minute ago   Up About a minute             beautiful_feistel
+[root@localhost ~]# docker logs 85b7b54b0f1d
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+hello world
+[root@localhost ~]# docker ps -a
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS                        PORTS     NAMES
+85b7b54b0f1d   centos:latest   "/bin/sh -c 'while t…"   3 minutes ago    Up 3 minutes                            beautiful_feistel
+69dc6d87f856   centos:latest   "bash"                   6 minutes ago    Exited (0) 5 minutes ago                mystifying_ganguly
+67305b39fa9b   centos:latest   "bash"                   8 minutes ago    Exited (0) 7 minutes ago                sweet_cartwright
+ac4ca017cfc6   centos:latest   "bash"                   12 minutes ago   Exited (127) 10 minutes ago             stupefied_poincare
+e34aa68af05b   centos:latest   "/bin/bash"              13 minutes ago   Exited (2) 12 minutes ago               crazy_stonebraker
+[root@localhost ~]# docker kill 85b7b54b0f1d
+85b7b54b0f1d
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@localhost ~]# ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:f0ff:fe7d:ae4d  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:f0:7d:ae:4d  txqueuelen 0  (Ethernet)
+        RX packets 10  bytes 496 (496.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11  bytes 918 (918.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:0c:29:fa:25:e5  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# docker run -d -p 80:80 centos:httpd-v2
+Unable to find image 'centos:httpd-v2' locally
+docker: Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on [::1]:53: read udp [::1]:33163->[::1]:53: read: connection refused.
+See 'docker run --help'.
+[root@localhost ~]# netstat -antup | grep 80
