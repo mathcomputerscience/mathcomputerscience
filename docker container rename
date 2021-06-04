@@ -1,0 +1,72 @@
+[root@localhost ~]# ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:f0ff:fe7d:ae4d  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:f0:7d:ae:4d  txqueuelen 0  (Ethernet)
+        RX packets 10  bytes 496 (496.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11  bytes 918 (918.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.116.3  netmask 255.255.255.0  broadcast 192.168.116.255
+        inet6 fe80::60:2042:ad6d:da8e  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:fa:25:e5  txqueuelen 1000  (Ethernet)
+        RX packets 25  bytes 5731 (5.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 45  bytes 5764 (5.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 168  bytes 16340 (15.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 168  bytes 16340 (15.9 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# clear
+
+
+
+
+
+
+
+
+
+[root@localhost ~]# systemctl start docker
+[root@localhost ~]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
+centos       latest    300e315adb2f   5 months ago   209MB
+[root@localhost ~]# docker run -itd --name aaaa centos:latest bash
+9419f5062a96409826caa1f025480029aae6d149eb0baf551a0d2d6a6979f06d
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE           COMMAND   CREATED          STATUS          PORTS     NAMES
+9419f5062a96   centos:latest   "bash"    13 seconds ago   Up 11 seconds             aaaa
+[root@localhost ~]# docker rename aaaa  docker1
+[root@localhost ~]# docker run -it --name docker3 -h docker63.cn centos bash
+[root@docker63 /]# exit
+exit
+[root@localhost ~]# docker run -itd --restart=always --name test6666 centos bash
+0705724f6c3626ca79b8d9f726b99cb3eb53c5459b35d5922a30e6041abb13c5
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE           COMMAND   CREATED         STATUS         PORTS     NAMES
+0705724f6c36   centos          "bash"    9 seconds ago   Up 8 seconds             test6666
+9419f5062a96   centos:latest   "bash"    6 minutes ago   Up 6 minutes             docker1
+[root@localhost ~]# systemctl restart docker
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+0705724f6c36   centos    "bash"    52 seconds ago   Up 11 seconds             test6666
+[root@localhost ~]# docker run -itd --name test888 centos bash
+151a240974c313154059684007d3d8e33dbd7e9d022b75e7545ef5566c7785a8
+[root@localhost ~]# docker update --restart=always test888
+test888
+[root@localhost ~]# systemctl stop docker
+Warning: Stopping docker.service, but it can still be activated by:
+  docker.socket
+[root@localhost ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS                  PORTS     NAMES
+151a240974c3   centos    "bash"    About a minute ago   Up Less than a second             test888
+0705724f6c36   centos    "bash"    6 minutes ago        Up Less than a second             test6666
